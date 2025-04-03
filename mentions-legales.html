@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales - FDPCI</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .legal-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--light-gray);
+        }
+
+        .legal-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        .legal-section h2 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .legal-section h3 {
+            color: var(--text-color);
+            margin: var(--spacing-lg) 0 var(--spacing-md);
+        }
+
+        .legal-section p {
+            margin-bottom: var(--spacing-md);
+            line-height: 1.6;
+        }
+
+        .legal-section ul {
+            margin-bottom: var(--spacing-md);
+            padding-left: var(--spacing-lg);
+        }
+
+        .legal-section li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: var(--spacing-lg);
+            right: var(--spacing-lg);
+            background: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .legal-container {
+                margin: 0 var(--spacing-md);
+                padding: var(--spacing-lg);
+            }
+
+            .back-to-top {
+                right: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container nav-container">
+                <div class="logo">
+                    <img src="assets/images/logo.png" alt="Logo FDPCI">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="actualites.html">Actualités</a></li>
+                    <li><a href="adhesion.html">Services d'adhésion</a></li>
+                    <li><a href="adherents.html">Adhérents</a></li>
+                    <li><a href="biens.html">Nos biens</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="height: 30vh;">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Mentions Légales</h1>
+                </div>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <div class="legal-container">
+                <h2>Informations légales</h2>
+                
+                <h3>Éditeur du site</h3>
+                <p>Fédération Départementale des Propriétaires et Copropriétaires Immobiliers de l'Aube (FDPCI)</p>
+                <p>Association loi 1901</p>
+                <p>123 Rue Principale, 10000 Troyes</p>
+                <p>Téléphone : 03 25 XX XX XX</p>
+                <p>Email : contact@fdpci-aube.fr</p>
+
+                <h3>Directeur de la publication</h3>
+                <p>Jean Dupont, Président de la FDPCI</p>
+
+                <h3>Hébergement</h3>
+                <p>Nom de l'hébergeur</p>
+                <p>Adresse de l'hébergeur</p>
+                <p>Téléphone : XX XX XX XX XX</p>
+
+                <h3>Propriété intellectuelle</h3>
+                <p>L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.</p>
+
+                <h3>Protection des données personnelles</h3>
+                <p>Conformément à la loi "Informatique et Libertés" du 6 janvier 1978 modifiée, vous disposez d'un droit d'accès, de rectification et de suppression des données vous concernant. Pour exercer ce droit, contactez-nous à l'adresse email mentionnée ci-dessus.</p>
+
+                <h3>Cookies</h3>
+                <p>Ce site utilise des cookies pour améliorer votre expérience de navigation. Vous pouvez les désactiver à tout moment dans les paramètres de votre navigateur.</p>
+
+                <h3>Liens hypertextes</h3>
+                <p>La création de liens hypertextes vers le présent site est soumise à l'accord préalable du directeur de la publication.</p>
+
+                <h3>Crédits</h3>
+                <p>Conception et réalisation : [Nom de l'agence]</p>
+                <p>Images : Picsum Photos</p>
+                <p>Icônes : Font Awesome</p>
+            </div>
+        </section>
+
+        <a href="#" class="back-to-top" id="backToTop">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Rue Principale, 10000 Troyes</p>
+                    <p><i class="fas fa-phone"></i> 03 25 XX XX XX</p>
+                    <p><i class="fas fa-envelope"></i> contact@fdpci-aube.fr</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Horaires</h3>
+                    <p>Lundi - Vendredi: 9h00 - 17h00</p>
+                    <p>Samedi: 9h00 - 12h00</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FDPCI - Tous droits réservés</p>
+                <a href="mentions-legales.html">Mentions légales</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Bouton retour en haut
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html> 

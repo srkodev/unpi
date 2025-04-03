@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualités - FDPCI</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .hero {
+            height: 40vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            opacity: 0.9;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://picsum.photos/1920/1080?random=12') center/cover;
+            opacity: 0.2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: var(--spacing-xl);
+        }
+
+        .news-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--white);
+        }
+
+        .filters {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--light-gray);
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover {
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .news-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .news-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .news-card:hover .news-image img {
+            transform: scale(1.1);
+        }
+
+        .news-content {
+            padding: var(--spacing-lg);
+        }
+
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-sm);
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        .news-category {
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        .news-date {
+            color: var(--text-color);
+        }
+
+        .news-title {
+            margin-bottom: var(--spacing-sm);
+            color: var(--primary-color);
+        }
+
+        .news-excerpt {
+            margin-bottom: var(--spacing-md);
+            color: var(--text-color);
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+
+        .read-more i {
+            transition: transform 0.3s ease;
+        }
+
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-xl);
+        }
+
+        .page-btn {
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--light-gray);
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .page-btn:hover {
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .page-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: 30vh;
+            }
+
+            .filters {
+                justify-content: center;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container nav-container">
+                <div class="logo">
+                    <img src="assets/images/logo.png" alt="Logo FDPCI">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="actualites.html" class="active">Actualités</a></li>
+                    <li><a href="adhesion.html">Services d'adhésion</a></li>
+                    <li><a href="adherents.html">Adhérents</a></li>
+                    <li><a href="biens.html">Nos biens</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Actualités</h1>
+                <p>Restez informé des dernières nouvelles et événements de la FDPCI</p>
+            </div>
+        </section>
+
+        <section class="news-section">
+            <div class="container">
+                <div class="filters">
+                    <button class="filter-btn active" data-category="all">Toutes les actualités</button>
+                    <button class="filter-btn" data-category="juridique">Juridique</button>
+                    <button class="filter-btn" data-category="formation">Formation</button>
+                    <button class="filter-btn" data-category="evenement">Événements</button>
+                </div>
+
+                <div class="news-grid">
+                    <div class="news-card" data-category="juridique">
+                        <div class="news-image">
+                            <img src="https://picsum.photos/800/600?random=13" alt="Actualité juridique">
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span class="news-category">Juridique</span>
+                                <span class="news-date">15 Mars 2024</span>
+                            </div>
+                            <h3 class="news-title">Nouvelles réglementations en matière de location</h3>
+                            <p class="news-excerpt">Découvrez les dernières modifications législatives concernant la location immobilière et leurs impacts sur votre activité.</p>
+                            <a href="#" class="read-more">
+                                Lire la suite
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="news-card" data-category="formation">
+                        <div class="news-image">
+                            <img src="https://picsum.photos/800/600?random=14" alt="Formation">
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span class="news-category">Formation</span>
+                                <span class="news-date">10 Mars 2024</span>
+                            </div>
+                            <h3 class="news-title">Nouvelle session de formation à la gestion locative</h3>
+                            <p class="news-excerpt">Inscrivez-vous à notre prochaine session de formation dédiée à la gestion locative professionnelle.</p>
+                            <a href="#" class="read-more">
+                                Lire la suite
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="news-card" data-category="evenement">
+                        <div class="news-image">
+                            <img src="https://picsum.photos/800/600?random=15" alt="Événement">
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span class="news-category">Événement</span>
+                                <span class="news-date">5 Mars 2024</span>
+                            </div>
+                            <h3 class="news-title">Assemblée générale annuelle 2024</h3>
+                            <p class="news-excerpt">Participez à notre assemblée générale annuelle et contribuez à l'avenir de la FDPCI.</p>
+                            <a href="#" class="read-more">
+                                Lire la suite
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pagination">
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Rue Principale, 10000 Troyes</p>
+                    <p><i class="fas fa-phone"></i> 03 25 XX XX XX</p>
+                    <p><i class="fas fa-envelope"></i> contact@fdpci-aube.fr</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Horaires</h3>
+                    <p>Lundi - Vendredi: 9h00 - 17h00</p>
+                    <p>Samedi: 9h00 - 12h00</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FDPCI - Tous droits réservés</p>
+                <a href="mentions-legales.html">Mentions légales</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Filtrage des actualités
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const newsCards = document.querySelectorAll('.news-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Retirer la classe active de tous les boutons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Ajouter la classe active au bouton cliqué
+                btn.classList.add('active');
+
+                const category = btn.dataset.category;
+
+                newsCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
