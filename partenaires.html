@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Partenaires - FDPCI</title>
+    <link rel="stylesheet" href="public/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .partenaires-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--white);
+            margin-top: 60px;
+        }
+
+        .partenaires-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .partenaires-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .partenaires-header p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-color);
+        }
+
+        .partenaires-types {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+
+        .type-btn {
+            padding: var(--spacing-sm) var(--spacing-lg);
+            background: var(--light-gray);
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .type-btn:hover, .type-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .partenaires-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .partenaire-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .partenaire-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .partenaire-logo {
+            height: 180px;
+            padding: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--white);
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .partenaire-logo img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+
+        .partenaire-content {
+            padding: var(--spacing-lg);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .partenaire-content h3 {
+            margin-bottom: var(--spacing-sm);
+            color: var(--primary-color);
+        }
+
+        .partenaire-content p {
+            margin-bottom: var(--spacing-md);
+            color: var(--text-color);
+            flex-grow: 1;
+        }
+
+        .partenaire-website {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-top: auto;
+            transition: all 0.3s ease;
+        }
+
+        .partenaire-website:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+
+        .partenaire-contact {
+            background: var(--light-gray);
+            padding: var(--spacing-md);
+            margin-top: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        .partenaire-contact h2 {
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+        }
+
+        .partenaire-contact p {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: var(--spacing-md) var(--spacing-xl);
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .partenaires-types {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .partenaires-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .partenaires-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container nav-container">
+                <div class="logo">
+                    <img src="assets/images/logo.png" alt="Logo FDPCI">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="actualites.html">Actualités</a></li>
+                    <li><a href="adhesion.html">Services d'adhésion</a></li>
+                    <li><a href="adherents.html">Adhérents</a></li>
+                    <li><a href="biens.html">Nos biens</a></li>
+                    <li><a href="partenaires.html" class="active">Partenaires</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="partenaires-section">
+            <div class="container">
+                <div class="partenaires-header">
+                    <h1>Nos Partenaires</h1>
+                    <p>La FDPCI travaille étroitement avec un réseau de partenaires de confiance pour offrir les meilleurs services à ses adhérents. Découvrez les organisations avec lesquelles nous collaborons.</p>
+                </div>
+
+                <div class="partenaires-types">
+                    <button class="type-btn active">Tous</button>
+                    <button class="type-btn">Institutionnels</button>
+                    <button class="type-btn">Juridiques</button>
+                    <button class="type-btn">Financiers</button>
+                    <button class="type-btn">Immobiliers</button>
+                </div>
+
+                <div class="partenaires-grid">
+                    <!-- Partenaire 1 -->
+                    <div class="partenaire-card" data-type="institutionnels">
+                        <div class="partenaire-logo">
+                            <img src="https://picsum.photos/400/200?random=101" alt="Logo Ministère du Logement">
+                        </div>
+                        <div class="partenaire-content">
+                            <h3>Ministère du Logement</h3>
+                            <p>Le Ministère du Logement collabore avec la FDPCI pour mettre en œuvre les politiques nationales du logement et de l'habitat.</p>
+                            <a href="#" class="partenaire-website">
+                                Visiter le site <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Partenaire 2 -->
+                    <div class="partenaire-card" data-type="juridiques">
+                        <div class="partenaire-logo">
+                            <img src="https://picsum.photos/400/200?random=102" alt="Logo Cabinet Martin & Associés">
+                        </div>
+                        <div class="partenaire-content">
+                            <h3>Cabinet Martin & Associés</h3>
+                            <p>Cabinet d'avocats spécialisé en droit immobilier qui accompagne nos adhérents dans leurs démarches juridiques.</p>
+                            <a href="#" class="partenaire-website">
+                                Visiter le site <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Partenaire 3 -->
+                    <div class="partenaire-card" data-type="financiers">
+                        <div class="partenaire-logo">
+                            <img src="https://picsum.photos/400/200?random=103" alt="Logo Banque de l'Immobilier">
+                        </div>
+                        <div class="partenaire-content">
+                            <h3>Banque de l'Immobilier</h3>
+                            <p>Institution financière proposant des solutions adaptées aux propriétaires et des conditions préférentielles pour nos adhérents.</p>
+                            <a href="#" class="partenaire-website">
+                                Visiter le site <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Partenaire 4 -->
+                    <div class="partenaire-card" data-type="immobiliers">
+                        <div class="partenaire-logo">
+                            <img src="https://picsum.photos/400/200?random=104" alt="Logo Gestion Locative Pro">
+                        </div>
+                        <div class="partenaire-content">
+                            <h3>Gestion Locative Pro</h3>
+                            <p>Entreprise de gestion locative offrant des services préférentiels aux adhérents de la FDPCI pour la gestion de leurs biens.</p>
+                            <a href="#" class="partenaire-website">
+                                Visiter le site <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Partenaire 5 -->
+                    <div class="partenaire-card" data-type="juridiques">
+                        <div class="partenaire-logo">
+                            <img src="https://picsum.photos/400/200?random=105" alt="Logo Notaires Associés">
+                        </div>
+                        <div class="partenaire-content">
+                            <h3>Notaires Associés</h3>
+                            <p>Réseau de notaires spécialisés dans les transactions immobilières et la gestion patrimoniale.</p>
+                            <a href="#" class="partenaire-website">
+                                Visiter le site <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Partenaire 6 -->
+                    <div class="partenaire-card" data-type="immobiliers">
+                        <div class="partenaire-logo">
+                            <img src="https://picsum.photos/400/200?random=106" alt="Logo Diagnostics Habitat">
+                        </div>
+                        <div class="partenaire-content">
+                            <h3>Diagnostics Habitat</h3>
+                            <p>Entreprise spécialisée dans les diagnostics immobiliers obligatoires avec des tarifs préférentiels pour nos adhérents.</p>
+                            <a href="#" class="partenaire-website">
+                                Visiter le site <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="partenaire-contact">
+                    <h2>Devenir partenaire</h2>
+                    <p>Vous souhaitez devenir partenaire de la FDPCI et rejoindre notre réseau ? Contactez-nous pour en discuter.</p>
+                    <a href="contact.html" class="contact-btn">Nous contacter</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Rue Principale, 10000 Troyes</p>
+                    <p><i class="fas fa-phone"></i> 03 25 XX XX XX</p>
+                    <p><i class="fas fa-envelope"></i> contact@fdpci-aube.fr</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Horaires</h3>
+                    <p>Lundi - Vendredi: 9h00 - 17h00</p>
+                    <p>Samedi: 9h00 - 12h00</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FDPCI - Tous droits réservés</p>
+                <a href="mentions-legales.html">Mentions légales</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Filtrage des partenaires
+        const typeButtons = document.querySelectorAll('.type-btn');
+        const partenaireCards = document.querySelectorAll('.partenaire-card');
+        
+        typeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Activer le bouton sélectionné
+                typeButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const type = button.textContent.toLowerCase();
+                
+                // Filtrer les cartes
+                partenaireCards.forEach(card => {
+                    if (type === 'tous') {
+                        card.style.display = 'flex';
+                    } else {
+                        if (card.dataset.type === type) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

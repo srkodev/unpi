@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détail du bien - FDPCI</title>
+    <link rel="stylesheet" href="public/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        .bien-detail {
+            padding: var(--spacing-xl) 0;
+            background: var(--white);
+            margin-top: 60px;
+        }
+
+        .swiper {
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            margin: 0 auto var(--spacing-xl) auto;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: var(--white);
+            background: rgba(0, 0, 0, 0.3);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 20px;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--white);
+        }
+
+        .bien-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .bien-meta {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-color);
+        }
+
+        .bien-meta span {
+            padding: var(--spacing-xs) var(--spacing-sm);
+            background: var(--light-gray);
+            border-radius: var(--border-radius-sm);
+            font-size: 0.9rem;
+        }
+
+        .bien-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-lg);
+            color: var(--primary-color);
+        }
+
+        .bien-price {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .bien-description {
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .bien-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .feature-item i {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        .bien-location {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .bien-location h2 {
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+        }
+
+        .map {
+            height: 300px;
+            background: var(--light-gray);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .proprietaire-section {
+            margin-bottom: var(--spacing-xl);
+            padding: var(--spacing-lg);
+            background: var(--light-gray);
+            border-radius: var(--border-radius);
+        }
+
+        .proprietaire-section h2 {
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+        }
+
+        .proprietaire-info {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+        }
+
+        .proprietaire-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .proprietaire-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .proprietaire-details {
+            flex: 1;
+        }
+
+        .proprietaire-details h3 {
+            margin-bottom: var(--spacing-xs);
+            color: var(--primary-color);
+        }
+
+        .proprietaire-contact {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+
+        .proprietaire-contact a {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--text-color);
+        }
+
+        .proprietaire-contact a:hover {
+            color: var(--secondary-color);
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: var(--spacing-md) var(--spacing-xl);
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .retour-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .retour-btn:hover {
+            color: var(--secondary-color);
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .swiper {
+                height: 300px;
+            }
+
+            .bien-content h1 {
+                font-size: 2rem;
+            }
+
+            .bien-meta {
+                flex-direction: column;
+            }
+
+            .bien-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container nav-container">
+                <div class="logo">
+                    <img src="assets/images/logo.png" alt="Logo FDPCI">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="actualites.html">Actualités</a></li>
+                    <li><a href="adhesion.html">Services d'adhésion</a></li>
+                    <li><a href="adherents.html">Adhérents</a></li>
+                    <li><a href="biens.html" class="active">Nos biens</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="bien-detail">
+            <div class="container">
+                <a href="biens.html" class="retour-btn">
+                    <i class="fas fa-arrow-left"></i> Retour aux biens
+                </a>
+                
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="https://picsum.photos/1920/1080?random=25" alt="Image du bien">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://picsum.photos/1920/1080?random=26" alt="Image du bien">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://picsum.photos/1920/1080?random=27" alt="Image du bien">
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+
+                <div class="bien-content">
+                    <div class="bien-meta">
+                        <span class="type">Appartement</span>
+                        <span class="location">Paris 15ème</span>
+                        <span class="surface">75 m²</span>
+                    </div>
+                    <h1>Appartement T3 - Paris 15ème</h1>
+                    <div class="bien-price">450 000 €</div>
+                    
+                    <div class="bien-description">
+                        <p>Magnifique appartement de 75m² situé dans le 15ème arrondissement de Paris. Lumineux et calme, il se compose d'un séjour, d'une cuisine équipée, de deux chambres et d'une salle de bain.</p>
+                        <p>L'appartement bénéficie d'une exposition sud-ouest, offrant une belle luminosité tout au long de la journée. Il est situé au 3ème étage d'un immeuble des années 1990, avec ascenseur.</p>
+                    </div>
+
+                    <div class="bien-features">
+                        <div class="feature-item">
+                            <i class="fas fa-bed"></i>
+                            <span>3 pièces</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-bath"></i>
+                            <span>1 salle de bain</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-ruler-combined"></i>
+                            <span>75 m²</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-building"></i>
+                            <span>3ème étage</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Année 1990</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-thermometer-half"></i>
+                            <span>Chauffage central</span>
+                        </div>
+                    </div>
+
+                    <div class="proprietaire-section">
+                        <h2>Propriétaire</h2>
+                        <div class="proprietaire-info">
+                            <div class="proprietaire-photo">
+                                <img src="https://picsum.photos/200/200?random=50" alt="Photo du propriétaire">
+                            </div>
+                            <div class="proprietaire-details">
+                                <h3>Jean Dupont</h3>
+                                <p>Propriétaire depuis 2010</p>
+                                <div class="proprietaire-contact">
+                                    <a href="tel:0123456789"><i class="fas fa-phone"></i> 01 23 45 67 89</a>
+                                    <a href="mailto:jean.dupont@exemple.com"><i class="fas fa-envelope"></i> jean.dupont@exemple.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bien-location">
+                        <h2>Localisation</h2>
+                        <p>15ème arrondissement de Paris, à proximité des commerces et des transports en commun.</p>
+                        <div class="map">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10495.478826407752!2d2.279666232037033!3d48.84152049046244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6701b4f58251b%3A0x167f5a60fb94aa76!2sRue%20du%20Commerce%2C%2075015%20Paris!5e0!3m2!1sfr!2sfr!4v1718889018654!5m2!1sfr!2sfr" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <a href="contact.html" class="contact-btn">
+                        <i class="fas fa-envelope"></i>
+                        Contacter pour plus d'informations
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Rue Principale, 10000 Troyes</p>
+                    <p><i class="fas fa-phone"></i> 03 25 XX XX XX</p>
+                    <p><i class="fas fa-envelope"></i> contact@fdpci-aube.fr</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Horaires</h3>
+                    <p>Lundi - Vendredi: 9h00 - 17h00</p>
+                    <p>Samedi: 9h00 - 12h00</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FDPCI - Tous droits réservés</p>
+                <a href="mentions-legales.html">Mentions légales</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+</body>
+</html> 

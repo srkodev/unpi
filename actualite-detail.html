@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détail de l'actualité - FDPCI</title>
+    <link rel="stylesheet" href="public/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        .actualite-detail {
+            padding: var(--spacing-xl) 0;
+            background: var(--white);
+            margin-top: 60px;
+        }
+
+        .swiper {
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            margin: 0 auto var(--spacing-xl) auto;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: var(--white);
+            background: rgba(0, 0, 0, 0.3);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 20px;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--white);
+        }
+
+        .actualite-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .actualite-meta {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-color);
+        }
+
+        .actualite-meta span {
+            padding: var(--spacing-xs) var(--spacing-sm);
+            background: var(--light-gray);
+            border-radius: var(--border-radius-sm);
+            font-size: 0.9rem;
+        }
+
+        .actualite-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-lg);
+            color: var(--primary-color);
+        }
+
+        .actualite-text {
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        .actualite-text p {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .retour-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .retour-btn:hover {
+            color: var(--secondary-color);
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .swiper {
+                height: 300px;
+            }
+
+            .actualite-content h1 {
+                font-size: 2rem;
+            }
+
+            .actualite-meta {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container nav-container">
+                <div class="logo">
+                    <img src="assets/images/logo.png" alt="Logo FDPCI">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="actualites.html" class="active">Actualités</a></li>
+                    <li><a href="adhesion.html">Services d'adhésion</a></li>
+                    <li><a href="adherents.html">Adhérents</a></li>
+                    <li><a href="biens.html">Nos biens</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="actualite-detail">
+            <div class="container">
+                <a href="actualites.html" class="retour-btn">
+                    <i class="fas fa-arrow-left"></i> Retour aux actualités
+                </a>
+                
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="https://picsum.photos/1920/1080?random=21" alt="Image actualité">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://picsum.photos/1920/1080?random=22" alt="Image actualité">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://picsum.photos/1920/1080?random=23" alt="Image actualité">
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+
+                <article class="actualite-content">
+                    <div class="actualite-meta">
+                        <span class="category">Juridique</span>
+                        <span class="date">12 avril 2024</span>
+                    </div>
+                    <h1>Nouvelle réglementation immobilière</h1>
+                    <div class="actualite-text">
+                        <p>Les dernières modifications de la loi ALUR impactent directement les propriétaires immobiliers. Ces changements visent à améliorer la protection des locataires tout en simplifiant les démarches administratives pour les propriétaires.</p>
+                        <p>Parmi les principales modifications, on note :</p>
+                        <ul>
+                            <li>Une simplification des procédures de bail</li>
+                            <li>De nouvelles obligations en matière de diagnostic technique</li>
+                            <li>Une révision des conditions de révision des loyers</li>
+                        </ul>
+                        <p>La FDPCI reste à votre disposition pour vous accompagner dans la compréhension et l'application de ces nouvelles réglementations. N'hésitez pas à nous contacter pour plus d'informations.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Rue Principale, 10000 Troyes</p>
+                    <p><i class="fas fa-phone"></i> 03 25 XX XX XX</p>
+                    <p><i class="fas fa-envelope"></i> contact@fdpci-aube.fr</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Horaires</h3>
+                    <p>Lundi - Vendredi: 9h00 - 17h00</p>
+                    <p>Samedi: 9h00 - 12h00</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FDPCI - Tous droits réservés</p>
+                <a href="mentions-legales.html">Mentions légales</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+</body>
+</html> 
